@@ -5,7 +5,7 @@ This is a tool for automating the creation of odoo-integration addons based on a
 ##Instalation:
 
 ```shell
-npm install -g https://github.com/yoandrypa/cenit2odoo.git
+npm install -g https://github.com/cenit-io/cenit2odoo.git
 ```
 
 ##Usage:
