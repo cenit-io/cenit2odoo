@@ -1,0 +1,30 @@
+{
+  "name": "cenit2odoo",
+  "version": "1.0.0",
+  "description": "This is a tool for automating the creation of odoo-integration addons based on a Cenit shared_collections.",
+  "main": "index.js",
+  "bin": "./bin/cli.js",
+  "scripts": {
+    "start": "gulp serve",
+    "deploy-branch": "node ./scripts/deploy-branch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoandrypa/cenit2odoo.git"
+  },
+  "author": "Yoandry Pacheco Aguila <yoandrypa@gmail.com>",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/yoandrypa/cenit2odoo/issues"
+  },
+  "homepage": "https://github.com/yoandrypa/cenit2odoo",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "entities": "^1.1.1",
+    "handlebars": "^4.0.5",
+    "mkdirp": "^0.5.1",
+    "paint-console": "0.0.1",
+    "request": "^2.75.0",
+    "string": "^3.3.3"
+  }
+}
