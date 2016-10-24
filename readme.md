@@ -24,3 +24,35 @@ Run in console: `cenit2odoo [options]`
     -s, --statics [statics]          Specify that must be generated the templates static files.
 
 ```
+
+### Examples:
+
+- Generate addon from local json file with shared collection: 
+
+    ```
+        cenit2odoo -lc ./collections/gmail.json
+    ```
+
+- Generate addon from remote shared collections in Cenit.IO: 
+
+    ```
+        cenit2odoo -c gmail
+    ```
+
+- Generate multiples addons from remote shared collections in Cenit.IO: 
+
+    ```
+        cenit2odoo -c gmail,twitter
+    ```
+
+- Generate addons in a specific path: 
+
+    ```
+        cenit2odoo -sc gmail -o my-addons
+    ```
+    
+- Generate addon with static files templates: 
+
+    ```
+        cenit2odoo -sc gmail
+    ```
