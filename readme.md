@@ -16,9 +16,11 @@ Run in console: `cenit2odoo [options]`
   Options:
   
 
-    -h, --help              output usage information
-    -V, --version           output the version number
-    -l, --local             Specify that the source is a local path to a the json file.
-    -s, --source [source]   Name of the shared collection at the Cenit-IO or local path to json file with shared collection.
-    -d, --out-dir [outDir]  Output directory for the resulting addon. Default is "odoo-addons".
+    -h, --help                       output usage information
+    -V, --version                    output the version number
+    -l, --local                      Specify that the collection is a local path to a the json file.
+    -c, --collections [collections]  Names of the shared collections at the Cenit-IO or local path to json file with shared collection.
+    -o, --out-dir [outDir]           Output directory for the resulting addon. Default is "odoo-addons".
+    -s, --statics [statics]          Specify that must be generated the templates static files.
+
 ```
