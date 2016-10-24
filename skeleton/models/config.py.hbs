@@ -57,7 +57,7 @@ class CenitIntegrationSettings(models.TransientModel):
         {{key}} = self.pool.get('ir.config_parameter').get_param(
             cr, uid, 'odoo_cenit.{{name}}.{{key}}', default=None, context=context
         )
-    
+
         return {'{{key}}': {{key}} or ''}
 
 {{else}}
@@ -108,12 +108,8 @@ class CenitIntegrationSettings(models.TransientModel):
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.install_collection(
             cr, uid,
