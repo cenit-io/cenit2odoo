@@ -20,14 +20,15 @@
 ##############################################################################
 
 {
-    'name': '{{summary}}',
+    'name': '{{CAPITALIZE name}} Integration',
     'version': '{{shared_version}}',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
-    #~ 'license': 'LGPL-3',
-    'category': 'Integration',
+    # ~ 'license': 'LGPL-3',
+    'category': 'Extra Tools',
+    'summary': '{{{summary}}}',
     'description': """
-        Odoo - {{summary}} via Cenit IO
+        Odoo - {{CAPITALIZE name}} integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [

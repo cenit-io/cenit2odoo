@@ -55,9 +55,8 @@ class CenitIntegrationSettings(models.TransientModel):
 {{#each pull_parameters}}
     def get_default_{{key}}(self, cr, uid, ids, context=None):
         {{key}} = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.{{name}}.{{key}}', default=None, context=context
+            cr, uid, 'odoo_cenit.{{../name}}.{{key}}', default=None, context=context
         )
-
         return {'{{key}}': {{key}} or ''}
 
 {{else}}
@@ -72,7 +71,7 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.{{name}}.{{key}}', record.{{key}} or '',
+                cr, uid, 'odoo_cenit.{{../name}}.{{key}}', record.{{key}} or '',
                 context=context
             )
 
@@ -111,11 +110,6 @@ class CenitIntegrationSettings(models.TransientModel):
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
-        installer.install_collection(
-            cr, uid,
-            data.get('id'),
-            params = params,
-            context = context
-        )
+        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 
         return rc
