@@ -30,7 +30,7 @@ COLLECTION_NAME = "{{name}}"
 COLLECTION_VERSION = "{{shared_version}}"
 COLLECTION_PARAMS = {
 {{#each pull_parameters}}
-    "{{HTML_DECODE parameter}}":'{{key}}',
+    "{{{parameter}}}":'{{key}}',
 {{else}}
     # WITHOUT COLLECTION_PARAMS.
 {{/each}}
