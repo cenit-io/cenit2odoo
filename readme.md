@@ -1,6 +1,6 @@
-#Cenit.IO to odoo addons.
+#Cenit IO to odoo addons.
 
-This is a tool for automating the creation of odoo-integration addons based on a Cenit.IO shared_collections.
+This is a tool for automating the creation of odoo-integration addons based on a Cenit IO shared_collections.
 
 ##Instalation:
 
@@ -33,13 +33,13 @@ Run in console: `cenit2odoo [options]`
         cenit2odoo -lc ./collections/gmail.json
     ```
 
-- Generate addon from remote shared collections in Cenit.IO: 
+- Generate addon from remote shared collections in Cenit IO: 
 
     ```
         cenit2odoo -c gmail
     ```
 
-- Generate multiples addons from remote shared collections in Cenit.IO: 
+- Generate multiples addons from remote shared collections in Cenit IO: 
 
     ```
         cenit2odoo -c gmail,twitter
