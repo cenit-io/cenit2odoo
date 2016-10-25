@@ -22,6 +22,7 @@ Run in console: `cenit2odoo [options]`
     -c, --collections [collections]  Names of the shared collections at the Cenit-IO or local path to json file with shared collection.
     -o, --out-dir [outDir]           Output directory for the resulting addon. Default is "odoo-addons".
     -s, --statics [statics]          Specify that must be generated the templates static files.
+    -i, --interactive                Specify that run in interactive mode.
 
 ```
 
@@ -55,4 +56,16 @@ Run in console: `cenit2odoo [options]`
 
     ```
         cenit2odoo -sc gmail
+    ```
+
+- Generate addons in interactive mode: 
+
+    ```
+        cenit2odoo -i
+    ```
+
+- Generate addons with static files templates in interactive mode: 
+
+    ```
+        cenit2odoo -si
     ```

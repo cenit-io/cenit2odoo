@@ -4,6 +4,14 @@ require('../lib/program-title');
 
 // Parser options from command arguments.
 var options = require('../lib/program-options'),
-    loadFrom = options.local ? 'load-from-local' : 'load-from-cenit';
+    loadFrom;
+
+if (options.local) {
+    loadFrom = 'load-from-local';
+} else if (options.interactive) {
+    loadFrom = 'load-from-cenit-interactive';
+} else {
+    loadFrom = 'load-from-cenit';
+}
 
 require('../lib/' + loadFrom)(options);
