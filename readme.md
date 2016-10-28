@@ -19,11 +19,14 @@ Run in console: `cenit2odoo [options]`
     -h, --help                       output usage information
     -V, --version                    output the version number
     -l, --local                      Specify that the collection is a local path to a the json file.
-    -c, --collections [collections]  Names of the shared collections at the Cenit-IO or local path to json file with shared collection.
+    -c, --collections [collections]  Names of the shared collections at the Cenit IO or local path to json file with 
+                                     shared collection.
     -o, --out-dir [outDir]           Output directory for the resulting addon. Default is "odoo-addons".
-    -s, --statics [statics]          Specify that must be generated the templates static files.
+    -s, --statics                    Specify that must be generated the templates static file.
     -i, --interactive                Specify that run in interactive mode.
-
+    -a, --all                        Specify that will generate the addon for each shared collections in Cenit IO.
+    -x, --exclude [exclude]          Names of shared collections to exclude. If list is empty, then the names are 
+                                     taken of EXCLUDE_SHARED_COLLECTION environment variable.
 ```
 
 ### Examples:
@@ -68,4 +71,24 @@ Run in console: `cenit2odoo [options]`
 
     ```
         cenit2odoo -si
+    ```
+
+- Generate all addons. 
+
+    ```
+        cenit2odoo -a
+    ```
+
+- Generate all addons except gmail and twitter. 
+
+    ```
+        cenit2odoo -ax gmail,twitter
+    ```
+
+- Generate all addons except gmail and twitter using environment. 
+
+    ```
+        export EXCLUDE_SHARED_COLLECTION="gmail,twitter"
+        
+        cenit2odoo -ax
     ```
