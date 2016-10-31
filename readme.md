@@ -27,6 +27,7 @@ Run in console: `cenit2odoo [options]`
     -a, --all                        Specify that will generate the addon for each shared collections in Cenit IO.
     -x, --exclude [exclude]          Names of shared collections to exclude. If list is empty, then the names are 
                                      taken of EXCLUDE_SHARED_COLLECTION environment variable.
+    -v, --odoo-version [odooVersion] Specify odoo version (default 8.0).
 ```
 
 ### Examples:
@@ -91,4 +92,10 @@ Run in console: `cenit2odoo [options]`
         export EXCLUDE_SHARED_COLLECTION="gmail,twitter"
         
         cenit2odoo -ax
+    ```
+
+- Generate addon for odoo version 9.0: 
+
+    ```
+        cenit2odoo -sc gmail -v 9.0
     ```
