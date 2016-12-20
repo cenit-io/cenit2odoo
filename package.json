@@ -29,6 +29,7 @@
     "paint-console": "0.0.1",
     "promptly": "^2.1.0",
     "request": "^2.75.0",
-    "string": "^3.3.3"
+    "string": "^3.3.3",
+    "sync-request": "^3.0.1"
   }
 }
