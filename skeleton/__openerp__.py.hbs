@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': {{{JSON_STRINGIFY summary}}},
-    'description': """
-        Odoo - {{CAPITALIZE name}} integration via Cenit IO
-    """,
+    'summary': {{{JSON_STRINGIFY (SUMMARIZE summary)}}},
+    'description': {{{JSON_STRINGIFY summary}}},
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
