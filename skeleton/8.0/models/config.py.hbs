@@ -30,7 +30,7 @@ COLLECTION_NAME = "{{name}}"
 COLLECTION_VERSION = "{{shared_version}}"
 COLLECTION_PARAMS = {
 {{#each pull_parameters}}
-  "On connection '{{location.connections.name}}' template parameter '{{label}}'":'{{location.template_parameters.key}}',
+    '{{label}}':'{{location.template_parameters.key}}',
 {{else}}
     # WITHOUT COLLECTION_PARAMS.
 {{/each}}
@@ -105,13 +105,14 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
+        for p in data.get('pull_parameters'):
+            k = p['label']
             id_ = p.get('id')
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.pull_shared_collection(data.get('id'), params=params)
+        installer.install_common_data(data['data'])
 
         return rc
 {{else}}
@@ -124,5 +125,5 @@ class CenitIntegrationSettings(models.TransientModel):
             context = context
         )
 
-        installer.install_collection(cr, uid, {'name': COLLECTION_NAME})
+        installer.install_common_data(data['data'])
 {{/if}}
