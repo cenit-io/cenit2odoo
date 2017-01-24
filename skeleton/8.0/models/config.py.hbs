@@ -111,8 +111,8 @@ class CenitIntegrationSettings(models.TransientModel):
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
-        installer.pull_shared_collection(data.get('id'), params=params)
-        installer.install_common_data(data['data'])
+        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.install_common_data(cr, uid, data['data'])
 
         return rc
 {{else}}
@@ -125,5 +125,5 @@ class CenitIntegrationSettings(models.TransientModel):
             context = context
         )
 
-        installer.install_common_data(data['data'])
+        installer.install_common_data(cr, uid, data['data'])
 {{/if}}
