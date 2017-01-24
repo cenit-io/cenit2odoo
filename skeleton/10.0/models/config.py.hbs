@@ -111,6 +111,7 @@ class CenitIntegrationSettings(models.TransientModel):
 
         return rc
 {{else}}
+    @api.model
     def install(self, context=None):
         installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
