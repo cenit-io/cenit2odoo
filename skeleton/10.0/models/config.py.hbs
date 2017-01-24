@@ -53,7 +53,7 @@ class CenitIntegrationSettings(models.TransientModel):
     # Default Getters
     ############################################################################
 {{#each pull_parameters}}
-    def get_default_{{location.template_parameters.key}}(self, context=None):
+    def get_default_{{location.template_parameters.key}}(self, context):
         {{location.template_parameters.key}} = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.{{../name}}.{{location.template_parameters.key}}', default=None
         )
@@ -82,8 +82,11 @@ class CenitIntegrationSettings(models.TransientModel):
     # Actions
     ############################################################################
 {{#if pull_parameters}}
-    def execute(self, context=None):
+    def execute(self):
         rc = super(CenitIntegrationSettings, self).execute()
+
+        if not self.env.context.get('install', False):
+            return rc
 
         objs = self.browse(self.ids)
         if not objs:
