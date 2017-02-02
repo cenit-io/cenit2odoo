@@ -3,12 +3,12 @@
     <data>
 
         <record id="wizard_cenit_{{name}}_install" model="ir.ui.view">
-            <field name="name">{{summary}} settings</field>
+            <field name="name">{{title}} settings</field>
             <field name="model">cenit.{{name}}.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
                 <xpath expr="//form" position="attributes">
-                    <attribute name="string">{{summary}} settings</attribute>
+                    <attribute name="string">{{title}} settings</attribute>
                 </xpath>
                 <xpath expr="//footer" position="replace">
                     <footer>
@@ -18,7 +18,7 @@
                 </xpath>
                 <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
-                        Configure {{summary}} data
+                        Configure {{title}} data
                     </p>
                     <group>
                     {{#each pull_parameters}}
@@ -30,7 +30,7 @@
         </record>
 
         <record id="action_wizard_cenit_{{name}}_install" model="ir.actions.act_window">
-            <field name="name">Configure {{summary}} data</field>
+            <field name="name">Configure {{title}} data</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cenit.{{name}}.settings</field>
             <field name="view_id" ref="wizard_cenit_{{name}}_install"/>

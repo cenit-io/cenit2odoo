@@ -3,10 +3,10 @@
     <data>
 
         <record id="view_cenit_{{name}}_settings" model="ir.ui.view">
-            <field name="name">{{summary}} settings</field>
+            <field name="name">{{title}} settings</field>
             <field name="model">cenit.{{name}}.settings</field>
             <field name="arch" type="xml">
-                <form string="Configure {{summary}}" class="oe_form_configuration">
+                <form string="Configure {{title}}" class="oe_form_configuration">
                     <header>
                         <button string="Apply" type="object"
                                 name="execute" class="oe_highlight"/>
@@ -15,7 +15,7 @@
                                 name="cancel" class="oe_link"/>
                     </header>
                     <div>
-                        <group string="{{summary}} settings">
+                        <group string="{{title}} settings">
                         {{#each pull_parameters}}
                             <field name='{{location.template_parameters.key}}' placeholder='Your {{label}}' />
                         {{/each}}
@@ -26,7 +26,7 @@
         </record>
 
         <record id="action_cenit_{{name}}_settings" model="ir.actions.act_window">
-            <field name="name">{{summary}} settings</field>
+            <field name="name">{{title}} settings</field>
             <field name="res_model">cenit.{{name}}.settings</field>
             <field name="view_mode">form</field>
             <field name="target">inline</field>
