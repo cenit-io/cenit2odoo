@@ -30,7 +30,7 @@ COLLECTION_NAME = "{{name}}"
 COLLECTION_VERSION = "{{shared_version}}"
 COLLECTION_PARAMS = {
 {{#each pull_parameters}}
-    '{{label}}':'{{location.template_parameters.key}}',
+      '{{label}}':'{{properties_locations.0.location.template_parameters.key}}',
 {{else}}
     # WITHOUT COLLECTION_PARAMS.
 {{/each}}
@@ -44,7 +44,7 @@ class CenitIntegrationSettings(models.TransientModel):
     # Pull Parameters
     ############################################################################
 {{#each pull_parameters}}
-    {{location.template_parameters.key}} = fields.Char('{{label}}')
+    {{properties_locations.0.location.template_parameters.key}} = fields.Char('{{label}}')
 {{else}}
     # WITHOUT PULL PARAMETERS.
 {{/each}}
@@ -53,11 +53,11 @@ class CenitIntegrationSettings(models.TransientModel):
     # Default Getters
     ############################################################################
 {{#each pull_parameters}}
-    def get_default_{{location.template_parameters.key}}(self, context):
-        {{location.template_parameters.key}} = self.env['ir.config_parameter'].get_param(
-            'odoo_cenit.{{../name}}.{{location.template_parameters.key}}', default=None
+    def get_default_{{properties_locations.0.location.template_parameters.key}}(self, context):
+        {{properties_locations.0.location.template_parameters.key}} = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.{{../name}}.{{properties_locations.0.location.template_parameters.key}}', default=None
         )
-        return {'{{location.template_parameters.key}}': {{location.template_parameters.key}} or ''}
+        return {'{{properties_locations.0.location.template_parameters.key}}': {{properties_locations.0.location.template_parameters.key}} or ''}
 
 {{else}}
     # WITHOUT GETTERS.
@@ -67,11 +67,11 @@ class CenitIntegrationSettings(models.TransientModel):
     # Default Setters
     ############################################################################
 {{#each pull_parameters}}
-    def set_{{location.template_parameters.key}}(self):
+    def set_{{properties_locations.0.location.template_parameters.key}}(self):
         config_parameters = self.env['ir.config_parameter']
         for record in self.browse(self.ids):
             config_parameters.set_param (
-                'odoo_cenit.{{../name}}.{{location.template_parameters.key}}', record.{{location.template_parameters.key}} or ''
+                'odoo_cenit.{{../name}}.{{properties_locations.0.location.template_parameters.key}}', record.{{properties_locations.0.location.template_parameters.key}} or ''
             )
 
 {{else}}
