@@ -119,5 +119,6 @@ class CenitIntegrationSettings(models.TransientModel):
             version = COLLECTION_VERSION
         )
 
+        installer.pull_shared_collection(data.get('id'))
         installer.install_common_data(data['data'])
 {{/if}}
